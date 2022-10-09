@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 9, 2022 3:40:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Albums" table="albums" catalog="dezal_records" optimistic-lock="version">
+        <id name="idAlbum" type="java.lang.Integer">
+            <column name="id_album" />
+            <generator class="identity" />
+        </id>
+        <property name="albumName" type="string">
+            <column name="album_name" length="200" not-null="true" />
+        </property>
+        <property name="artist" type="string">
+            <column name="artist" length="200" />
+        </property>
+        <property name="years" type="string">
+            <column name="years" length="4" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="50" />
+        </property>
+        <property name="price" type="java.lang.Long">
+            <column name="price" />
+        </property>
+        <property name="stock" type="java.lang.Integer">
+            <column name="stock" />
+        </property>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_album" />
+            </key>
+            <one-to-many class="pojo.Orders" />
+        </set>
+    </class>
+</hibernate-mapping>

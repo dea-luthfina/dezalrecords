@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 9, 2022 3:40:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Orders" table="orders" catalog="dezal_records" optimistic-lock="version">
+        <id name="idOrder" type="java.lang.Integer">
+            <column name="id_order" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="admins" class="pojo.Admins" fetch="select">
+            <column name="id_admin" />
+        </many-to-one>
+        <many-to-one name="albums" class="pojo.Albums" fetch="select">
+            <column name="id_album" />
+        </many-to-one>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" />
+        </property>
+        <property name="totalPrice" type="java.lang.Integer">
+            <column name="total_price" />
+        </property>
+        <property name="orderDate" type="date">
+            <column name="order_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

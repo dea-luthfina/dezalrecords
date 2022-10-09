@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Our Corner</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse" style="background-color: #1e4f23">
+                <div class="navbar-brand" style="background-color: #1ef23">
+                    <font style="color: white">Our Corner</font>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-xs-updated">
+                    <b:container style="width: 25%">
+                        <h:form styleClass="form-signin" prependId="false">
+                            <h2 class="form-signin-heading">Silahkan Login</h2>
+                            <b:inputText id="uEmail" required="true" placeholder="Username" value="#{admins.email}"
+                                         required-message="Username tidak boleh kosong!">
+                                <f:facet name="prepend">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </f:facet>
+                            </b:inputText>
+                            <b:inputText id="uPass" required="true" placeholder="Password" value="#{admins.password}"
+                                         required-message="Password tidak boleh kosong!" type="password">
+                                <f:facet name="prepend">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </f:facet>
+                            </b:inputText>
+                            <b:selectBooleanCheckbox value="true" caption="Remember me"/>
+                            <center>
+                                <b:commandButton look="primary btn-success" action="#{admins.loginValidation()}"
+                                                 value="Sign In" icon="Log-in" size="lg"/>
+                            </center>
+                        </h:form>
+                        <div class="text-center">
+                                    New admin? Register here
+                                    <h:form class="d-inline">
+                                        <h:commandLink action="/register.xhtml" class="text-dark" value="Register"/>
+                                    </h:form>
+                        </div>
+                    </b:container>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
