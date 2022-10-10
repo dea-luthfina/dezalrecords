@@ -2,52 +2,81 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Our Corner</title>
+        <title>Welcome - Dezal Records</title>
         <h:outputStylesheet library="css" name="bootstrap.min.css"/>
     </h:head>
     <h:body>
-        <div class="container">
-            <div class="navbar navbar-inverse" style="background-color: #1e4f23">
-                <div class="navbar-brand" style="background-color: #1ef23">
-                    <font style="color: white">Our Corner</font>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-xs-updated">
-                    <b:container style="width: 25%">
-                        <h:form styleClass="form-signin" prependId="false">
-                            <h2 class="form-signin-heading">Silahkan Login</h2>
-                            <b:inputText id="uEmail" required="true" placeholder="Username" value="#{admins.email}"
-                                         required-message="Username tidak boleh kosong!">
-                                <f:facet name="prepend">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </f:facet>
-                            </b:inputText>
-                            <b:inputText id="uPass" required="true" placeholder="Password" value="#{admins.password}"
-                                         required-message="Password tidak boleh kosong!" type="password">
-                                <f:facet name="prepend">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                </f:facet>
-                            </b:inputText>
-                            <b:selectBooleanCheckbox value="true" caption="Remember me"/>
-                            <center>
-                                <b:commandButton look="primary btn-success" action="#{admins.loginValidation()}"
-                                                 value="Sign In" icon="Log-in" size="lg"/>
-                            </center>
-                        </h:form>
-                        <div class="text-center">
-                                    New admin? Register here
-                                    <h:form class="d-inline">
-                                        <h:commandLink action="/register.xhtml" class="text-dark" value="Register"/>
-                                    </h:form>
+        <div class="container px-3 vh-100 text-center">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-6">
+                        <h:graphicImage value="resources/img/taylor.jpg" alt="cover" width="400"/>  
+                    </div>
+                    <div class="col-6 p-5">
+                        
+                        <!--Login Form-->
+                        <div class="card-body p-5">
+                            <h1 class="fw-bold mb-5">Sign into your account</h1>
+                            <h:form
+                                class="text-start"
+                                p:novalidate="true"
+                                p:autocomplete="off"
+                            >
+                                
+                                <!--Username-->
+                                <div class="mb-4">
+                                    <h:outputLabel class="mb-2 text-muted" for="email" value="Username or Email"/>  
+                                    <h:inputText
+                                        value="#{admins.email}"
+                                        id="email"
+                                        p:type="email"
+                                        class="form-control input-focus"
+                                        required="true"
+                                    />
+<!--                                    <div class="invalid-feedback">Email is invalid</div>-->
+                                </div>
+                                
+                                <!--Password-->
+                                <div class="mb-4">
+                                    <h:outputLabel class="mb-2 text-muted" for="password" value="Password"/>
+                                    <h:inputSecret
+                                        value="#{admins.password}"
+                                        id="password"
+                                        class="form-control input-focus"
+                                        required="true"
+                                    />
+<!--                                    <div class="invalid-feedback">Password is required</div>-->
+                                </div>
+                                
+                                <!--Button Submit-->
+                                <div class="d-flex justify-content-center">
+                                    <h:commandButton
+                                        action="#{admins.loginValidation()}"
+                                        type="submit"
+                                        class="btn btn-warning
+                                               w-25
+                                               mt-3
+                                               text-white"
+                                        style="border-radius: 1rem;"
+                                        value="Sign In"
+                                    />
+                                </div>
+                            </h:form>
                         </div>
-                    </b:container>
+                        
+                        <!--Footer-->
+                        <div class="card-footer py-3 border-0">
+                            <div class="text-center">
+                                Don't have an account?
+                                <h:form class="d-inline">
+                                    <h:commandLink action="/register.xhtml" value="Register Here"/>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </h:body>
 </html>
 

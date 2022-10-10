@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Our Corner</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse" style="background-color: #1e4f23">
+                <div class="navbar-brand" style="background-color: #1e4f23">
+                    <font style="color: white">Our Corner</font>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-xs-updated">
+                    <center>
+                        <b:container style="width: 40%; background-color: #dcffbd">
+                            <h:form styleClass="form-signin" prependId="false">
+                                <br/>
+                                <h:outputLabel style="font-family: Centaur; font-size: 35px">Data Album</h:outputLabel>
+                                <br/><br/>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h:outputLabel style="font-family: Centaur; font-size: 24px">ID Pelanggan</h:outputLabel>
+                                        </td>
+                                        <td width="5%"></td>
+                                        <td>
+                                            <b:inputText style="font-family: Centaur; font-size: 18px" placeholder="Masukkan ID DIcari"
+                                                         value="#{albums.idAlbum}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <center>
+                                                <b:commandButton look="primary btn-success" value="Cari Data Pelanggan"
+                                                                 icon="search" action="#{albums.getbyID()}"/>
+                                            </center>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Nama:</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{albums.albumName}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Artist:</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{albums.artist}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Years:</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{albums.years}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Type</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{albums.type}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Price</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{albums.price}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 24px">Stock</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 18px" value="#{albums.stock}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <center>
+                                                <b:commandButton look="primary btn-success" value="UBAH"
+                                                                 icon="edit" action="#{albums.updateAlbum()}"/>
+                                                &nbsp; &nbsp; &nbsp;
+                                                <b:commandButton look="primary btn-success" value="HAPUS"
+                                                                 icon="trash" action="#{albums.deleteAlbum()}"/>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </h:form>
+                        </b:container>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

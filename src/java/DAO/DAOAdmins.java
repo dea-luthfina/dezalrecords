@@ -18,6 +18,8 @@ import pojo.DezalRecordsUtil;
  * @author luthfina
  */
 public class DAOAdmins {
+    
+//    login
     public List<Admins> getBy (String uEmail, String uPass){
         Admins a = new Admins();
         List<Admins> admin = new ArrayList();
@@ -39,6 +41,7 @@ public class DAOAdmins {
         return admin;
     }
     
+//    register
     public String add_admin(Admins admin){
         Transaction trans = null;
         Session session = DezalRecordsUtil.getSessionFactory().openSession();
@@ -50,6 +53,6 @@ public class DAOAdmins {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return "error";
+        return "login_failed";
     }
 }
